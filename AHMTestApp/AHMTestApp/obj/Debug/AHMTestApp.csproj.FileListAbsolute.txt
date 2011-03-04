@@ -1,0 +1,5 @@
+C:\GitRepos\Test\AHMTestApp\AHMTestApp\bin\AHMTestApp.dll
+C:\GitRepos\Test\AHMTestApp\AHMTestApp\bin\AHMTestApp.pdb
+C:\GitRepos\Test\AHMTestApp\AHMTestApp\obj\Debug\ResolveAssemblyReference.cache
+C:\GitRepos\Test\AHMTestApp\AHMTestApp\obj\Debug\AHMTestApp.dll
+C:\GitRepos\Test\AHMTestApp\AHMTestApp\obj\Debug\AHMTestApp.pdb

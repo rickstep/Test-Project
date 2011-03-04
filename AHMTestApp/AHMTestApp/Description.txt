@@ -1,0 +1,49 @@
+﻿
+Order of Columns in DataList
+
+StartDate
+EndDate
+FeeScheduleTypeID
+SpeakerFeeGroupId
+ContractTypeID
+SpeakerRoleID
+Amount
+
+[Edit] - Makes row editable
+[Save] - Saves row
+
+
+--Each row needs hidden fields that include 
+PersonId
+FeeScheduleTypeID
+SpeakerFeeGroupId
+StartDate
+
+
+
+
+ADD NEW RECORD
+
+When add new record is clicked it will Need to bring up a row with the following items:
+
+StartDate
+EndDate
+FeeScheduleTypeID
+SpeakerFeeGroupId
+ContractTypeID
+SpeakerRoleID
+Amount
+
+
+it will also need to store PersonId as a hidden value so the save can reference it.  
+Probably the best way to add this is at pageload. Check the count of the DTO List
+and put the person id as the command arguement on the add new button.  THen on the 
+add new click, assign that person id to a hidden field.
+
+ 
+
+
+
+
+
+
