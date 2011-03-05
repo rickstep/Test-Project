@@ -3,3 +3,8 @@ C:\GitRepos\Test\AHMTestApp\AHMTestApp\bin\AHMTestApp.pdb
 C:\GitRepos\Test\AHMTestApp\AHMTestApp\obj\Debug\ResolveAssemblyReference.cache
 C:\GitRepos\Test\AHMTestApp\AHMTestApp\obj\Debug\AHMTestApp.dll
 C:\GitRepos\Test\AHMTestApp\AHMTestApp\obj\Debug\AHMTestApp.pdb
+C:\GitTest1\AHMTestApp\AHMTestApp\bin\AHMTestApp.dll
+C:\GitTest1\AHMTestApp\AHMTestApp\bin\AHMTestApp.pdb
+C:\GitTest1\AHMTestApp\AHMTestApp\obj\Debug\ResolveAssemblyReference.cache
+C:\GitTest1\AHMTestApp\AHMTestApp\obj\Debug\AHMTestApp.dll
+C:\GitTest1\AHMTestApp\AHMTestApp\obj\Debug\AHMTestApp.pdb

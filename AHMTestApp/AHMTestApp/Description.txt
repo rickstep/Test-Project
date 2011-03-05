@@ -19,7 +19,7 @@ FeeScheduleTypeID
 SpeakerFeeGroupId
 StartDate
 
-
+<input type="hidden" value="5" ID="viewHidden" runat="server" />
 
 
 ADD NEW RECORD

@@ -19,12 +19,39 @@ namespace AHMTestApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Bind Grid Here
+            if (!Page.IsPostBack)
+            {
+                //Bind Grid Here
+                viewDataList.DataSource = GetStubbedDataForDataList();
+                viewDataList.DataBind();
+            }
         }
 
 
 
+        protected void viewDataList_ItemDataBound(object sender, DataListItemEventArgs e)
+        {
+            SpeakerFeeDTO myDTO = (SpeakerFeeDTO)e.Item.DataItem;
 
+            Label viewAmountLbl = (Label)e.Item.FindControl("viewAmountLbl");
+            Label viewFeeScheduleTypeID = (Label)e.Item.FindControl("viewFeeScheduleTypeID");
+            Label viewContractTypeID = (Label)e.Item.FindControl("viewContractTypeID");
+            Label viewGroupIDLbl = (Label)e.Item.FindControl("viewGroupIDLbl");
+            Label viewRoleIDLbl = (Label)e.Item.FindControl("viewRoleIDLbl");
+            Label viewStartDateLbl = (Label)e.Item.FindControl("viewStartDateLbl");
+            Label viewEndDateLbl = (Label)e.Item.FindControl("viewEndDateLbl");
+            Button viewEditBtn = (Button)e.Item.FindControl("viewEditBtn");
+            Button viewSaveBtn = (Button)e.Item.FindControl("viewSaveBtn");
+
+            viewAmountLbl.Text = myDTO.Amount.ToString();
+            viewFeeScheduleTypeID.Text = myDTO.FeeScheduleTypeID.ToString();
+            viewContractTypeID.Text = myDTO.ContractTypeID.ToString();
+            viewGroupIDLbl.Text = myDTO.SpeakerFeeGroupId.ToString();
+            viewRoleIDLbl.Text = myDTO.SpeakerRoleID.ToString();
+            viewStartDateLbl.Text = myDTO.StartDate.ToShortDateString();
+            viewEndDateLbl.Text = myDTO.EndDate.ToShortDateString();
+            viewSaveBtn.Visible = false;
+        }
 
 
         private List<SpeakerFeeDTO> GetStubbedDataForDataList()
