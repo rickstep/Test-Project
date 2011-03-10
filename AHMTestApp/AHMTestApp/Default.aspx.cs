@@ -29,6 +29,7 @@ namespace AHMTestApp
             }
         }
 
+        /* Fills dropdownlists for the new record creation section */
         private void initCreateRecord()
         {
             createFeeScheduleTypeDDL.DataSource = GetFeeScheduleTypeIds();
@@ -53,6 +54,7 @@ namespace AHMTestApp
 
         }
 
+        /* This sets up the list of records */
         protected void viewDataList_ItemDataBound(object sender, DataListItemEventArgs e)
         {
             SpeakerFeeDTO myDTO = (SpeakerFeeDTO)e.Item.DataItem;
@@ -67,6 +69,7 @@ namespace AHMTestApp
             
             Button viewEditBtn = (Button)e.Item.FindControl("viewEditBtn");
             Button viewSaveBtn = (Button)e.Item.FindControl("viewSaveBtn");
+            Button viewDeleteBtn = (Button)e.Item.FindControl("viewDeleteBtn");
 
             viewAmountTxtBox.Text = myDTO.Amount.ToString();
             viewAmountTxtBox.Enabled = false;
@@ -106,11 +109,23 @@ namespace AHMTestApp
             
             viewSaveBtn.Visible = false;
             viewSaveBtn.CommandArgument = viewSaveBtn.ClientID;
+            viewDeleteBtn.Visible = false;
+            viewDeleteBtn.CommandArgument = viewDeleteBtn.ClientID;
             viewEditBtn.Visible = true;
             viewEditBtn.CommandArgument = viewEditBtn.ClientID;
         }
 
-        protected void viewEditBtn_Clicked(object sender, EventArgs e)
+
+        /* This is when a new record has been created */ /* INCOMPLETE */
+        protected void viewCreateBtn_Clicked(object sender, EventArgs e)
+        {
+            Button senderBtn = (Button)sender;
+
+
+        }
+
+        /* This is when a record has been deleted */ /* INCOMPLETE */
+        protected void viewDeleteBtn_Clicked(object sender, EventArgs e)
         {
             Button senderBtn = (Button)sender;
 
@@ -118,34 +133,16 @@ namespace AHMTestApp
 
             foreach (DataListItem item in viewDataList.Items)
             {
-                Button rowButton = (Button)item.FindControl("viewEditBtn");
+                Button rowButton = (Button)item.FindControl("viewDeleteBtn");
 
                 if (rowButton.CommandArgument == clientId)
                 {
-                    TextBox viewAmountTxtBox = (TextBox)item.FindControl("viewAmountTxtBox");
-                    DropDownList viewFeeScheduleTypeDDL = (DropDownList)item.FindControl("viewFeeScheduleTypeDDL");
-                    DropDownList viewContractTypeDDL = (DropDownList)item.FindControl("viewContractTypeDDL");
-                    DropDownList viewGroupDDL = (DropDownList)item.FindControl("viewGroupDDL");
-                    DropDownList viewRoleDDL = (DropDownList)item.FindControl("viewRoleDDL");
-                    TextBox viewStartDateTxtBox = (TextBox)item.FindControl("viewStartDateTxtBox");
-                    TextBox viewEndDateTxtBox = (TextBox)item.FindControl("viewEndDateTxtBox");
-                    Button viewSaveBtn = (Button)item.FindControl("viewSaveBtn");
 
-                    viewAmountTxtBox.Enabled = true;
-                    viewFeeScheduleTypeDDL.Enabled = true;
-                    viewContractTypeDDL.Enabled = true;
-                    viewGroupDDL.Enabled = true;
-                    viewRoleDDL.Enabled = true;
-                    viewStartDateTxtBox.Enabled = true;
-                    viewEndDateTxtBox.Enabled = true;
-                    viewSaveBtn.Visible = true;
-                    rowButton.Visible = false;
                 }
-
             }
-
         }
 
+        /* This saves any changes made to the selected row */ /* INCOMPLETE */
         protected void viewSaveBtn_Clicked(object sender, EventArgs e)
         {
             Button senderBtn = (Button)sender;
@@ -172,12 +169,48 @@ namespace AHMTestApp
 
         }
 
-        protected void viewCreateBtn_Clicked(object sender, EventArgs e)
+        /* This activates the textboxes and dropdownlists for the selected row */
+        protected void viewEditBtn_Clicked(object sender, EventArgs e)
         {
             Button senderBtn = (Button)sender;
 
+            string clientId = senderBtn.CommandArgument;
+
+            foreach (DataListItem item in viewDataList.Items)
+            {
+                Button rowButton = (Button)item.FindControl("viewEditBtn");
+
+                if (rowButton.CommandArgument == clientId)
+                {
+                    TextBox viewAmountTxtBox = (TextBox)item.FindControl("viewAmountTxtBox");
+                    DropDownList viewFeeScheduleTypeDDL = (DropDownList)item.FindControl("viewFeeScheduleTypeDDL");
+                    DropDownList viewContractTypeDDL = (DropDownList)item.FindControl("viewContractTypeDDL");
+                    DropDownList viewGroupDDL = (DropDownList)item.FindControl("viewGroupDDL");
+                    DropDownList viewRoleDDL = (DropDownList)item.FindControl("viewRoleDDL");
+                    TextBox viewStartDateTxtBox = (TextBox)item.FindControl("viewStartDateTxtBox");
+                    TextBox viewEndDateTxtBox = (TextBox)item.FindControl("viewEndDateTxtBox");
+                    Button viewSaveBtn = (Button)item.FindControl("viewSaveBtn");
+                    Button viewDeleteBtn = (Button)item.FindControl("viewDeleteBtn");
+
+                    viewAmountTxtBox.Enabled = true;
+                    viewFeeScheduleTypeDDL.Enabled = true;
+                    viewContractTypeDDL.Enabled = true;
+                    viewGroupDDL.Enabled = true;
+                    viewRoleDDL.Enabled = true;
+                    viewStartDateTxtBox.Enabled = true;
+                    viewEndDateTxtBox.Enabled = true;
+                    viewSaveBtn.Visible = true;
+                    viewDeleteBtn.Visible = true;
+                    rowButton.Visible = false;
+                }
+
+            }
 
         }
+
+        
+
+        
 
         private List<SpeakerFeeDTO> GetStubbedDataForDataList()
         {

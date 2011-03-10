@@ -22,7 +22,8 @@
         .title_row{float:left;width:740px;border-bottom:1px solid #d6d6d6;padding:10px 15px 0px 15px;}
         .long{width:auto;border-bottom:none;}
         .data_title{font-size:12px;}
-        .data_btn{float:left;width:80px;height:30px;margin-left:5px;margin-top:0px;}
+        .data_btn{float:left;width:80px;height:30px;margin-left:5px;margin-top:0px;cursor:pointer;}
+        .data_btn2{float:left;width:40px;height:30px;margin-left:5px;margin-top:0px; font-size:9px;cursor:pointer;}
     </style>
 </head>
 <body>
@@ -69,7 +70,8 @@
                             <asp:DropDownList ID="viewRoleDDL" CssClass="data_item_ddl" runat="server"></asp:DropDownList>
                             <asp:TextBox ID="viewAmountTxtBox" CssClass="data_item_txtbox short2" runat="server"></asp:TextBox>
                             <asp:Button ID="viewEditBtn" CssClass="data_btn" OnClick="viewEditBtn_Clicked" runat="server" Text="Edit" />
-                            <asp:Button ID="viewSaveBtn" CssClass="data_btn" OnClick="viewSaveBtn_Clicked" runat="server" Text="Save" />
+                            <asp:Button ID="viewDeleteBtn" CssClass="data_btn2" OnClick="viewDeleteBtn_Clicked" runat="server" Text="Delete" />
+                            <asp:Button ID="viewSaveBtn" CssClass="data_btn2" OnClick="viewSaveBtn_Clicked" runat="server" Text="Save" />
                         </div>
                     </ItemTemplate>
                 </asp:DataList>
